@@ -18,23 +18,33 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
     event.preventDefault();
 
 
+ codex/mostrar-estructura-de-archivos-nmpous
+
  codex/mostrar-estructura-de-archivos
+ main
     const normalizedEmail = email.trim().toLowerCase();
 
      const normalizedEmail = email.trim().toLowerCase();
  main
 
+codex/mostrar-estructura-de-archivos-nmpous
 
+
+ main
     if (!normalizedEmail || !password) {
       return;
     }
 
 
     onSubmit({
+ codex/mostrar-estructura-de-archivos-nmpous
+      email: normalizedEmail,
+
  codex/mostrar-estructura-de-archivos
       email: normalizedEmail,
 
      email: normalizedEmail,
+ main
  main
       password,
     });
@@ -45,11 +55,15 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
     <form onSubmit={handleSubmit}>
       <h1>Iniciar sesión</h1>
       <div>
+ codex/mostrar-estructura-de-archivos-nmpous
+        <label htmlFor="email">Correo Gmail</label>
+
  codex/mostrar-estructura-de-archivos
         <label htmlFor="email">Correo Gmail</label>
 
        <label htmlFor="email">Correo Gmail</label>
 main
+ main
 
 
         <input

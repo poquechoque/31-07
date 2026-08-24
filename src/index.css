@@ -12,7 +12,10 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+ codex/mostrar-estructura-de-archivos-nmpous
   background: #f4f7fb;
+
+ main
 }
 
 button,
@@ -91,6 +94,7 @@ form button:hover {
   color: #a11212;
   font-weight: 700;
 }
+codex/mostrar-estructura-de-archivos-nmpous
 
 .site-shell {
   min-height: 100vh;
@@ -280,3 +284,5 @@ form button:hover {
     width: min(45vw, 210px);
   }
 }
+
+main

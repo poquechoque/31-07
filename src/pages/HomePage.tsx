@@ -27,12 +27,21 @@ function HomePage() {
           <span>adoptaSucre</span>
         </a>
 
+ codex/mostrar-estructura-de-archivos-nmpous
         <nav className="site-nav" aria-label="Navegación principal">
           <a href="#inicio">Inicio</a>
           <a href="#mascotas">Mascotas</a>
           <a href="#como-adoptar">Cómo adoptar</a>
           <a href="#nosotros">Sobre nosotros</a>
         </nav>
+
+      {user ? (
+        <>
+          <p>Bienvenido, {user.name}</p>
+          <p>Correo: {user.email}</p>
+          <p>Rol: {user.role}</p>
+          <p>Estado: {user.status}</p>
+main
 
         {user ? (
           <button className="session-button" type="button" onClick={handleLogout}>

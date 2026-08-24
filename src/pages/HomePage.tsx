@@ -23,8 +23,9 @@ function HomePage() {
       {user ? (
         <>
           <p>Bienvenido, {user.name}</p>
-          <p>Carnet: {user.carnet}</p>
+          <p>Correo: {user.email}</p>
           <p>Rol: {user.role}</p>
+          <p>Estado: {user.status}</p>
 
 
           <button type="button" onClick={handleLogout}>

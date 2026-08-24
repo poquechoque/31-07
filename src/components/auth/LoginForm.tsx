@@ -10,7 +10,7 @@ interface LoginFormProps {
 
 
 function LoginForm({ error, onSubmit }: LoginFormProps) {
-  const [carnet, setCarnet] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
 
@@ -18,16 +18,16 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
     event.preventDefault();
 
 
-    const normalizedCarnet = carnet.trim();
+    const normalizedEmail = email.trim().toLowerCase();
 
 
-    if (!normalizedCarnet || !password) {
+    if (!normalizedEmail || !password) {
       return;
     }
 
 
     onSubmit({
-      carnet: normalizedCarnet,
+      email: normalizedEmail,
       password,
     });
   };
@@ -39,17 +39,19 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
 
 
       <div>
-        <label htmlFor="carnet">Carnet de identidad</label>
+        <label htmlFor="email">Correo Gmail</label>
 
 
         <input
-          id="carnet"
-          name="carnet"
-          type="text"
-          value={carnet}
-          onChange={(event) => setCarnet(event.target.value)}
-          placeholder="Ingrese su carnet"
-          autoComplete="username"
+          id="email"
+          name="email"
+          type="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          placeholder="Ingrese su correo Gmail"
+          autoComplete="email"
+          pattern="^[a-zA-Z0-9._%+\-]+@gmail\.com$"
+          title="Ingrese un correo de Gmail válido"
           required
         />
       </div>

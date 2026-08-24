@@ -18,7 +18,11 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
     event.preventDefault();
 
 
+ codex/mostrar-estructura-de-archivos
     const normalizedEmail = email.trim().toLowerCase();
+
+     const normalizedEmail = email.trim().toLowerCase();
+ main
 
 
     if (!normalizedEmail || !password) {
@@ -27,7 +31,11 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
 
 
     onSubmit({
+ codex/mostrar-estructura-de-archivos
       email: normalizedEmail,
+
+     email: normalizedEmail,
+ main
       password,
     });
   };
@@ -36,10 +44,12 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
   return (
     <form onSubmit={handleSubmit}>
       <h1>Iniciar sesión</h1>
-
-
       <div>
+ codex/mostrar-estructura-de-archivos
         <label htmlFor="email">Correo Gmail</label>
+
+       <label htmlFor="email">Correo Gmail</label>
+main
 
 
         <input

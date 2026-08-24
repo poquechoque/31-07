@@ -4,7 +4,11 @@
     "name": "Administrador",
     "email": "admin@gmail.com",
     "password": "admin123",
+ codex/mostrar-estructura-de-archivos
     "role": "ADMIN",
+
+     "role": "ADMIN",
+ main
     "status": "ACTIVO"
   },
   {

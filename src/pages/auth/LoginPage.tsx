@@ -27,7 +27,7 @@ function LoginPage() {
 
 
     if (!user) {
-      setError("El carnet o la contraseña son incorrectos.");
+      setError("El correo Gmail o la contraseña son incorrectos, o el usuario está inactivo.");
       return;
     }
 

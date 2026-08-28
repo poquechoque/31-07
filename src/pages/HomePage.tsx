@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
 
+import lunaImage from "../assets/dogs/luna.svg";
+import maxImage from "../assets/dogs/max.svg";
+import nalaImage from "../assets/dogs/nala.svg";
 import { authRepository } from "../repositories/authRepository";
 
 
@@ -26,6 +29,15 @@ function HomePage() {
           </svg>
           <span>adoptaSucre</span>
         </a>
+ codex/mostrar-estructura-de-archivos-cr5ycf
+
+        <nav className="site-nav" aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#mascotas">Mascotas</a>
+          <a href="#como-adoptar">Cómo adoptar</a>
+          <a href="#nosotros">Sobre nosotros</a>
+        </nav>
+
 
  codex/mostrar-estructura-de-archivos-nmpous
         <nav className="site-nav" aria-label="Navegación principal">
@@ -42,6 +54,7 @@ function HomePage() {
           <p>Rol: {user.role}</p>
           <p>Estado: {user.status}</p>
 main
+ main
 
         {user ? (
           <button className="session-button" type="button" onClick={handleLogout}>
@@ -71,7 +84,39 @@ main
         <section className="home-section" id="mascotas" aria-labelledby="mascotas-title">
           <p className="eyebrow">Ellos te esperan</p>
           <h2 id="mascotas-title">Mascotas que buscan hogar</h2>
+ codex/mostrar-estructura-de-archivos-cr5ycf
+          <p className="section-intro">
+            Conoce a algunos de los perritos que están listos para formar parte de tu familia.
+          </p>
+
+          <div className="pet-grid">
+            <article className="pet-card">
+              <img src={lunaImage} alt="Luna, perrita color miel con pañuelo azul" />
+              <div className="pet-card-content">
+                <h3>Luna</h3>
+                <p>2 años · Cariñosa y juguetona</p>
+              </div>
+            </article>
+
+            <article className="pet-card">
+              <img src={maxImage} alt="Max, perrito blanco y café con pañuelo azul marino" />
+              <div className="pet-card-content">
+                <h3>Max</h3>
+                <p>3 años · Leal y tranquilo</p>
+              </div>
+            </article>
+
+            <article className="pet-card">
+              <img src={nalaImage} alt="Nala, perrita gris con pañuelo amarillo" />
+              <div className="pet-card-content">
+                <h3>Nala</h3>
+                <p>1 año · Dulce y curiosa</p>
+              </div>
+            </article>
+          </div>
+
           <p>Muy pronto podrás conocer a cada una y comenzar su proceso de adopción.</p>
+ main
         </section>
 
         <section className="home-section" id="como-adoptar" aria-labelledby="adopcion-title">

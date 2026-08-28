@@ -12,9 +12,13 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+ codex/mostrar-estructura-de-archivos-cr5ycf
+  background: #f4f7fb;
+
  codex/mostrar-estructura-de-archivos-nmpous
   background: #f4f7fb;
 
+ main
  main
 }
 
@@ -94,7 +98,10 @@ form button:hover {
   color: #a11212;
   font-weight: 700;
 }
+ codex/mostrar-estructura-de-archivos-cr5ycf
+
 codex/mostrar-estructura-de-archivos-nmpous
+ main
 
 .site-shell {
   min-height: 100vh;
@@ -260,6 +267,51 @@ codex/mostrar-estructura-de-archivos-nmpous
   line-height: 1.6;
 }
 
+ codex/mostrar-estructura-de-archivos-cr5ycf
+.section-intro {
+  max-width: 620px;
+}
+
+.pet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.pet-card {
+  overflow: hidden;
+  border: 1px solid #e2eaf3;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgb(11 31 58 / 8%);
+}
+
+.pet-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.pet-card-content {
+  padding: 1.15rem 1.2rem 1.3rem;
+}
+
+.pet-card h3 {
+  margin: 0;
+  color: #0b1f3a;
+  font-size: 1.25rem;
+}
+
+.pet-card p {
+  margin: 0.35rem 0 0;
+  color: #49627c;
+  font-size: 0.92rem;
+}
+
+
+ main
 @media (max-width: 760px) {
   .site-header {
     flex-wrap: wrap;
@@ -283,6 +335,14 @@ codex/mostrar-estructura-de-archivos-nmpous
   .hero-paw {
     width: min(45vw, 210px);
   }
+ codex/mostrar-estructura-de-archivos-cr5ycf
+
+  .pet-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 }
 
 main
+ main

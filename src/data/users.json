@@ -4,6 +4,9 @@
     "name": "Administrador",
     "email": "admin@gmail.com",
     "password": "admin123",
+ codex/mostrar-estructura-de-archivos-cr5ycf
+    "role": "ADMIN",
+
  codex/mostrar-estructura-de-archivos-nmpous
     "role": "ADMIN",
 
@@ -11,6 +14,7 @@
     "role": "ADMIN",
 
      "role": "ADMIN",
+ main
  main
  main
     "status": "ACTIVO"

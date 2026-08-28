@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="title desc">
+  <title id="title">Luna, perrita color miel</title>
+  <desc id="desc">Ilustración de una perrita sonriente con pañuelo azul.</desc>
+  <rect width="400" height="300" rx="28" fill="#e5f3ff"/>
+  <circle cx="300" cy="56" r="32" fill="#f6d56f"/>
+  <path d="M68 238c30-44 76-61 132-61s102 17 132 61v62H68z" fill="#93c5e9"/>
+  <path d="M129 150 85 95c-17-21-6-49 18-52 17-3 29 11 38 30l21 46zM271 150l44-55c17-21 6-49-18-52-17-3-29 11-38 30l-21 46z" fill="#bd7b45"/>
+  <circle cx="200" cy="144" r="91" fill="#d99a5b"/>
+  <ellipse cx="200" cy="192" rx="57" ry="43" fill="#f6d4a6"/>
+  <circle cx="165" cy="145" r="9" fill="#172d4d"/>
+  <circle cx="235" cy="145" r="9" fill="#172d4d"/>
+  <path d="M183 178q17-15 34 0-17 18-34 0z" fill="#172d4d"/>
+  <path d="M180 211q20 20 40 0" fill="none" stroke="#172d4d" stroke-linecap="round" stroke-width="7"/>
+  <path d="M132 222q68 44 136 0l-13 45h-110z" fill="#1672c4"/>
+  <circle cx="200" cy="253" r="13" fill="#f6d56f"/>
+</svg>

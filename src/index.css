@@ -12,12 +12,27 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+ codex/mostrar-estructura-de-archivos-ea8p9c
   background: #f4f7fb;
 }
 
 button,
 input,
 select {
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+  background: #f4f7fb;
+
+ codex/mostrar-estructura-de-archivos-nmpous
+  background: #f4f7fb;
+
+ main
+ main
+}
+
+button,
+input {
+ main
   font: inherit;
 }
 
@@ -92,6 +107,13 @@ form button:hover {
   color: #a11212;
   font-weight: 700;
 }
+ codex/mostrar-estructura-de-archivos-ea8p9c
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+
+codex/mostrar-estructura-de-archivos-nmpous
+ main
+ main
 
 .site-shell {
   min-height: 100vh;
@@ -257,6 +279,10 @@ form button:hover {
   line-height: 1.6;
 }
 
+ codex/mostrar-estructura-de-archivos-ea8p9c
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+ main
 .section-intro {
   max-width: 620px;
 }
@@ -299,6 +325,7 @@ form button:hover {
   font-size: 0.92rem;
 }
 
+ codex/mostrar-estructura-de-archivos-ea8p9c
 .catalog-link {
   display: inline-block;
   margin-top: 1.75rem;
@@ -504,6 +531,10 @@ form button:hover {
   }
 }
 
+
+
+ main
+ main
 @media (max-width: 760px) {
   .site-header {
     flex-wrap: wrap;
@@ -527,10 +558,15 @@ form button:hover {
   .hero-paw {
     width: min(45vw, 210px);
   }
+ codex/mostrar-estructura-de-archivos-ea8p9c
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+ main
 
   .pet-grid {
     grid-template-columns: 1fr;
   }
+ codex/mostrar-estructura-de-archivos-ea8p9c
 
   .catalog-layout {
     grid-template-columns: 1fr;
@@ -566,3 +602,11 @@ form button:hover {
     grid-template-columns: 1fr;
   }
 }
+
+}
+
+}
+
+main
+ main
+ main

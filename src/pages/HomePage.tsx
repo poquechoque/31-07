@@ -29,6 +29,7 @@ function HomePage() {
           </svg>
           <span>adoptaSucre</span>
         </a>
+ codex/mostrar-estructura-de-archivos-ea8p9c
 
         <nav className="site-nav" aria-label="Navegación principal">
           <a href="#inicio">Inicio</a>
@@ -36,6 +37,34 @@ function HomePage() {
           <a href="#como-adoptar">Cómo adoptar</a>
           <a href="#nosotros">Sobre nosotros</a>
         </nav>
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+
+        <nav className="site-nav" aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#mascotas">Mascotas</a>
+          <a href="#como-adoptar">Cómo adoptar</a>
+          <a href="#nosotros">Sobre nosotros</a>
+        </nav>
+
+
+ codex/mostrar-estructura-de-archivos-nmpous
+        <nav className="site-nav" aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#mascotas">Mascotas</a>
+          <a href="#como-adoptar">Cómo adoptar</a>
+          <a href="#nosotros">Sobre nosotros</a>
+        </nav>
+
+      {user ? (
+        <>
+          <p>Bienvenido, {user.name}</p>
+          <p>Correo: {user.email}</p>
+          <p>Rol: {user.role}</p>
+          <p>Estado: {user.status}</p>
+main
+ main
+ main
 
         {user ? (
           <button className="session-button" type="button" onClick={handleLogout}>
@@ -57,7 +86,11 @@ function HomePage() {
               En adoptaSucre conectamos mascotas que buscan un hogar con personas listas para
               brindarles cariño y cuidado.
             </p>
+ codex/mostrar-estructura-de-archivos-ea8p9c
             <Link className="hero-button" to="/mascotas">Conoce a nuestras mascotas</Link>
+
+            <a className="hero-button" href="#mascotas">Conoce a nuestras mascotas</a>
+ main
           </div>
           <div className="hero-paw" aria-hidden="true">♥</div>
         </section>
@@ -65,6 +98,10 @@ function HomePage() {
         <section className="home-section" id="mascotas" aria-labelledby="mascotas-title">
           <p className="eyebrow">Ellos te esperan</p>
           <h2 id="mascotas-title">Mascotas que buscan hogar</h2>
+ codex/mostrar-estructura-de-archivos-ea8p9c
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+ main
           <p className="section-intro">
             Conoce a algunos de los perritos que están listos para formar parte de tu familia.
           </p>
@@ -94,7 +131,13 @@ function HomePage() {
               </div>
             </article>
           </div>
+ codex/mostrar-estructura-de-archivos-ea8p9c
           <Link className="catalog-link" to="/mascotas">Ver catálogo completo</Link>
+
+
+          <p>Muy pronto podrás conocer a cada una y comenzar su proceso de adopción.</p>
+ main
+ main
         </section>
 
         <section className="home-section" id="como-adoptar" aria-labelledby="adopcion-title">

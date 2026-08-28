@@ -12,7 +12,14 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+ codex/mostrar-estructura-de-archivos-cr5ycf
   background: #f4f7fb;
+
+ codex/mostrar-estructura-de-archivos-nmpous
+  background: #f4f7fb;
+
+ main
+ main
 }
 
 button,
@@ -91,6 +98,10 @@ form button:hover {
   color: #a11212;
   font-weight: 700;
 }
+ codex/mostrar-estructura-de-archivos-cr5ycf
+
+codex/mostrar-estructura-de-archivos-nmpous
+ main
 
 .site-shell {
   min-height: 100vh;
@@ -256,6 +267,7 @@ form button:hover {
   line-height: 1.6;
 }
 
+ codex/mostrar-estructura-de-archivos-cr5ycf
 .section-intro {
   max-width: 620px;
 }
@@ -298,6 +310,8 @@ form button:hover {
   font-size: 0.92rem;
 }
 
+
+ main
 @media (max-width: 760px) {
   .site-header {
     flex-wrap: wrap;
@@ -321,8 +335,14 @@ form button:hover {
   .hero-paw {
     width: min(45vw, 210px);
   }
+ codex/mostrar-estructura-de-archivos-cr5ycf
 
   .pet-grid {
     grid-template-columns: 1fr;
   }
 }
+
+}
+
+main
+ main

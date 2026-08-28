@@ -17,8 +17,9 @@ export const authRepository = {
   login(credentials: LoginCredentials): User | null {
     const foundUser = users.find(
       (user) =>
-        user.carnet === credentials.carnet &&
-        user.password === credentials.password
+        user.email.toLowerCase() === credentials.email &&
+        user.password === credentials.password &&
+        user.status === "ACTIVO"
     );
 
 
@@ -30,8 +31,9 @@ export const authRepository = {
     const sessionUser: User = {
       id: foundUser.id,
       name: foundUser.name,
-      carnet: foundUser.carnet,
+      email: foundUser.email,
       role: foundUser.role,
+      status: foundUser.status,
     };
 
 

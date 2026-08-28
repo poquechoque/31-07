@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="title desc">
+  <title id="title">Nala, perrita gris</title>
+  <desc id="desc">Ilustración de una perrita gris con flores y pañuelo amarillo.</desc>
+  <rect width="400" height="300" rx="28" fill="#eff7ec"/>
+  <circle cx="69" cy="66" r="25" fill="#f3ba58"/><circle cx="329" cy="71" r="30" fill="#c4e4b1"/>
+  <path d="M45 255c44-47 101-69 155-58 63-10 120 10 155 58v45H45z" fill="#b6d6aa"/>
+  <path d="M137 139 92 91c-18-20-7-51 18-54 18-2 30 14 37 35l15 52zM263 139l45-48c18-20 7-51-18-54-18-2-30 14-37 35l-15 52z" fill="#707d89"/>
+  <circle cx="200" cy="143" r="88" fill="#9da9b2"/>
+  <ellipse cx="200" cy="190" rx="57" ry="42" fill="#d6dde0"/>
+  <circle cx="167" cy="145" r="9" fill="#172d4d"/><circle cx="233" cy="145" r="9" fill="#172d4d"/>
+  <path d="M183 178q17-15 34 0-17 18-34 0z" fill="#172d4d"/>
+  <path d="M180 210q20 20 40 0" fill="none" stroke="#172d4d" stroke-linecap="round" stroke-width="7"/>
+  <path d="M134 220q66 37 132 0l-15 43H149z" fill="#f3ba58"/>
+  <circle cx="200" cy="248" r="13" fill="#fffaf1"/>
+</svg>

@@ -18,11 +18,16 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
     event.preventDefault();
 
 
+ codex/mostrar-estructura-de-archivos-ea8p9c
+
  codex/mostrar-estructura-de-archivos-cr5ycf
+ main
     const normalizedEmail = email.trim().toLowerCase();
 
  codex/mostrar-estructura-de-archivos-nmpous
  main
+
+ codex/mostrar-estructura-de-archivos-ea8p9c
 
  codex/mostrar-estructura-de-archivos
  main
@@ -38,12 +43,16 @@ codex/mostrar-estructura-de-archivos-nmpous
 
  main
  main
+ main
     if (!normalizedEmail || !password) {
       return;
     }
 
 
     onSubmit({
+ codex/mostrar-estructura-de-archivos-ea8p9c
+      email: normalizedEmail,
+
  codex/mostrar-estructura-de-archivos-cr5ycf
       email: normalizedEmail,
 
@@ -54,6 +63,7 @@ codex/mostrar-estructura-de-archivos-nmpous
       email: normalizedEmail,
 
      email: normalizedEmail,
+ main
  main
  main
  main
@@ -75,9 +85,12 @@ codex/mostrar-estructura-de-archivos-nmpous
  codex/mostrar-estructura-de-archivos-cr5ycf
       <div>
         <label htmlFor="email">Correo Gmail</label>
+ codex/mostrar-estructura-de-archivos-ea8p9c
+
 
        <label htmlFor="email">Correo Gmail</label>
 main
+ main
  main
  main
 

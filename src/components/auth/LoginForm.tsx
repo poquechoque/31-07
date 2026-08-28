@@ -18,16 +18,66 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
     event.preventDefault();
 
 
+ codex/mostrar-estructura-de-archivos-opcsxy
     const normalizedEmail = email.trim().toLowerCase();
 
+ codex/mostrar-estructura-de-archivos-ea8p9c
+ main
 
+ codex/mostrar-estructura-de-archivos-cr5ycf
+ main
+    const normalizedEmail = email.trim().toLowerCase();
+
+ codex/mostrar-estructura-de-archivos-opcsxy
+
+ codex/mostrar-estructura-de-archivos-nmpous
+ main
+
+ codex/mostrar-estructura-de-archivos-ea8p9c
+
+ codex/mostrar-estructura-de-archivos
+ main
+    const normalizedEmail = email.trim().toLowerCase();
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+
+     const normalizedEmail = email.trim().toLowerCase();
+ main
+
+codex/mostrar-estructura-de-archivos-nmpous
+
+
+ main
+ main
+ main
+ main
     if (!normalizedEmail || !password) {
       return;
     }
 
 
     onSubmit({
+ codex/mostrar-estructura-de-archivos-opcsxy
       email: normalizedEmail,
+
+ codex/mostrar-estructura-de-archivos-ea8p9c
+      email: normalizedEmail,
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+      email: normalizedEmail,
+
+ codex/mostrar-estructura-de-archivos-nmpous
+      email: normalizedEmail,
+
+ codex/mostrar-estructura-de-archivos
+      email: normalizedEmail,
+
+     email: normalizedEmail,
+ main
+ main
+ main
+ main
+ main
       password,
     });
   };
@@ -36,10 +86,27 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
   return (
     <form onSubmit={handleSubmit}>
       <h1>Iniciar sesión</h1>
+      <div>
+ codex/mostrar-estructura-de-archivos-nmpous
+        <label htmlFor="email">Correo Gmail</label>
 
+ codex/mostrar-estructura-de-archivos
+        <label htmlFor="email">Correo Gmail</label>
 
+ codex/mostrar-estructura-de-archivos-cr5ycf
       <div>
         <label htmlFor="email">Correo Gmail</label>
+ codex/mostrar-estructura-de-archivos-opcsxy
+
+ codex/mostrar-estructura-de-archivos-ea8p9c
+
+
+       <label htmlFor="email">Correo Gmail</label>
+main
+ main
+ main
+ main
+ main
 
 
         <input

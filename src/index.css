@@ -12,12 +12,33 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+ codex/mostrar-estructura-de-archivos-opcsxy
+
+ codex/mostrar-estructura-de-archivos-ea8p9c
+ main
   background: #f4f7fb;
 }
 
 button,
 input,
 select {
+ codex/mostrar-estructura-de-archivos-opcsxy
+
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+  background: #f4f7fb;
+
+ codex/mostrar-estructura-de-archivos-nmpous
+  background: #f4f7fb;
+
+ main
+ main
+}
+
+button,
+input {
+ main
+ main
   font: inherit;
 }
 
@@ -92,6 +113,16 @@ form button:hover {
   color: #a11212;
   font-weight: 700;
 }
+ codex/mostrar-estructura-de-archivos-opcsxy
+
+ codex/mostrar-estructura-de-archivos-ea8p9c
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+
+codex/mostrar-estructura-de-archivos-nmpous
+ main
+ main
+ main
 
 .site-shell {
   min-height: 100vh;
@@ -257,6 +288,13 @@ form button:hover {
   line-height: 1.6;
 }
 
+ codex/mostrar-estructura-de-archivos-opcsxy
+
+ codex/mostrar-estructura-de-archivos-ea8p9c
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+ main
+ main
 .section-intro {
   max-width: 620px;
 }
@@ -299,6 +337,10 @@ form button:hover {
   font-size: 0.92rem;
 }
 
+ codex/mostrar-estructura-de-archivos-opcsxy
+
+ codex/mostrar-estructura-de-archivos-ea8p9c
+ main
 .catalog-link {
   display: inline-block;
   margin-top: 1.75rem;
@@ -427,12 +469,16 @@ form button:hover {
 }
 
 .catalog-card {
+ codex/mostrar-estructura-de-archivos-opcsxy
   display: block;
+
+ main
   overflow: hidden;
   border: 1px solid #e2eaf3;
   border-radius: 16px;
   background: #ffffff;
   box-shadow: 0 10px 28px rgb(11 31 58 / 8%);
+ codex/mostrar-estructura-de-archivos-opcsxy
   color: inherit;
   text-decoration: none;
   transition: transform 160ms ease, box-shadow 160ms ease;
@@ -442,6 +488,8 @@ form button:hover {
 .catalog-card:focus-visible {
   transform: translateY(-4px);
   box-shadow: 0 16px 32px rgb(11 31 58 / 15%);
+
+ main
 }
 
 .catalog-card img {
@@ -482,6 +530,7 @@ form button:hover {
   font-weight: 750;
 }
 
+ codex/mostrar-estructura-de-archivos-opcsxy
 .details-link {
   display: inline-block;
   margin-top: 1rem;
@@ -489,12 +538,27 @@ form button:hover {
   padding: 0.7rem 1rem;
   color: #ffffff;
   background: #0b1f3a;
+
+.catalog-card button {
+  width: 100%;
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.7rem;
+  color: #ffffff;
+  background: #0b1f3a;
+  cursor: pointer;
+ main
   font-size: 0.88rem;
   font-weight: 800;
 }
 
+ codex/mostrar-estructura-de-archivos-opcsxy
 .catalog-card:hover .details-link,
 .catalog-card:focus-visible .details-link {
+
+.catalog-card button:hover {
+ main
   background: #12345f;
 }
 
@@ -507,6 +571,7 @@ form button:hover {
   text-align: center;
 }
 
+ codex/mostrar-estructura-de-archivos-opcsxy
 .pet-detail-main {
   display: block;
   min-height: calc(100vh - 76px);
@@ -586,12 +651,20 @@ form button:hover {
   font-weight: 800;
 }
 
+=======
+ main
 @media (max-width: 960px) {
   .catalog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+ codex/mostrar-estructura-de-archivos-opcsxy
+
+
+ main
+ main
+ main
 @media (max-width: 760px) {
   .site-header {
     flex-wrap: wrap;
@@ -615,10 +688,21 @@ form button:hover {
   .hero-paw {
     width: min(45vw, 210px);
   }
+ codex/mostrar-estructura-de-archivos-opcsxy
+
+ codex/mostrar-estructura-de-archivos-ea8p9c
+
+ codex/mostrar-estructura-de-archivos-cr5ycf
+ main
+ main
 
   .pet-grid {
     grid-template-columns: 1fr;
   }
+ codex/mostrar-estructura-de-archivos-opcsxy
+
+ codex/mostrar-estructura-de-archivos-ea8p9c
+ main
 
   .catalog-layout {
     grid-template-columns: 1fr;
@@ -647,6 +731,7 @@ form button:hover {
   .catalog-grid {
     grid-template-columns: 1fr;
   }
+ codex/mostrar-estructura-de-archivos-opcsxy
 
   .pet-detail-card {
     grid-template-columns: 1fr;
@@ -656,6 +741,8 @@ form button:hover {
     min-height: auto;
     aspect-ratio: 4 / 3;
   }
+
+ main
 }
 
 @media (max-width: 480px) {
@@ -663,3 +750,14 @@ form button:hover {
     grid-template-columns: 1fr;
   }
 }
+ codex/mostrar-estructura-de-archivos-opcsxy
+
+
+}
+
+}
+
+main
+ main
+ main
+ main

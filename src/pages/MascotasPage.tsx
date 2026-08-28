@@ -2,6 +2,12 @@ import { useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
+ codex/mostrar-estructura-de-archivos-opcsxy
+import { dogs } from "../data/pets";
+import { authRepository } from "../repositories/authRepository";
+
+
+
 import lunaImage from "../assets/dogs/luna.svg";
 import maxImage from "../assets/dogs/max.svg";
 import nalaImage from "../assets/dogs/nala.svg";
@@ -42,6 +48,7 @@ const dogs = [
 ];
 
 
+ main
 function MascotasPage() {
   const navigate = useNavigate();
   const user = authRepository.getCurrentUser();
@@ -53,7 +60,11 @@ function MascotasPage() {
   const filteredDogs = useMemo(() => {
     const normalizedSearch = search.trim().toLowerCase();
 
+ codex/mostrar-estructura-de-archivos-opcsxy
+    return dogs.filter((dog) => dog.image).filter((dog) => (
+
     return dogs.filter((dog) => (
+ main
       (breed === "Todas" || dog.breed === breed)
       && (age === "Todas" || dog.age === age)
       && (sex === "Todos" || dog.sex === sex)
@@ -160,15 +171,25 @@ function MascotasPage() {
             {filteredDogs.length > 0 ? (
               <div className="catalog-grid">
                 {filteredDogs.map((dog) => (
+ codex/mostrar-estructura-de-archivos-opcsxy
+                  <Link className="catalog-card" key={dog.name} to={`/mascotas/${dog.slug}`}>
+
                   <article className="catalog-card" key={dog.name}>
+ main
                     <img src={dog.image} alt={dog.imageAlt} />
                     <div className="catalog-card-content">
                       <div className="pet-name-row"><h3>{dog.name}</h3><span>{dog.sex}</span></div>
                       <p className="pet-meta">{dog.breed} · {dog.ageDetail}</p>
                       <p>{dog.description}</p>
+ codex/mostrar-estructura-de-archivos-opcsxy
+                      <span className="details-link">Ver detalles</span>
+                    </div>
+                  </Link>
+
                       <button type="button" onClick={() => navigate("/login")}>Quiero adoptarlo</button>
                     </div>
                   </article>
+ main
                 ))}
               </div>
             ) : (

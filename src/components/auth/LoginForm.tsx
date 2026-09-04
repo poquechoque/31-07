@@ -2,112 +2,36 @@ import { useState } from "react";
 import type { FormEventHandler } from "react";
 import type { LoginCredentials } from "../../types/auth";
 
-
 interface LoginFormProps {
   error?: string;
   onSubmit: (credentials: LoginCredentials) => void;
 }
 
-
 function LoginForm({ error, onSubmit }: LoginFormProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
 
-
- codex/mostrar-estructura-de-archivos-opcsxy
     const normalizedEmail = email.trim().toLowerCase();
 
- codex/mostrar-estructura-de-archivos-ea8p9c
- main
-
- codex/mostrar-estructura-de-archivos-cr5ycf
- main
-    const normalizedEmail = email.trim().toLowerCase();
-
- codex/mostrar-estructura-de-archivos-opcsxy
-
- codex/mostrar-estructura-de-archivos-nmpous
- main
-
- codex/mostrar-estructura-de-archivos-ea8p9c
-
- codex/mostrar-estructura-de-archivos
- main
-    const normalizedEmail = email.trim().toLowerCase();
-
- codex/mostrar-estructura-de-archivos-cr5ycf
-
-     const normalizedEmail = email.trim().toLowerCase();
- main
-
-codex/mostrar-estructura-de-archivos-nmpous
-
-
- main
- main
- main
- main
     if (!normalizedEmail || !password) {
       return;
     }
 
-
     onSubmit({
- codex/mostrar-estructura-de-archivos-opcsxy
       email: normalizedEmail,
-
- codex/mostrar-estructura-de-archivos-ea8p9c
-      email: normalizedEmail,
-
- codex/mostrar-estructura-de-archivos-cr5ycf
-      email: normalizedEmail,
-
- codex/mostrar-estructura-de-archivos-nmpous
-      email: normalizedEmail,
-
- codex/mostrar-estructura-de-archivos
-      email: normalizedEmail,
-
-     email: normalizedEmail,
- main
- main
- main
- main
- main
       password,
     });
   };
 
-
   return (
     <form onSubmit={handleSubmit}>
       <h1>Iniciar sesión</h1>
-      <div>
- codex/mostrar-estructura-de-archivos-nmpous
-        <label htmlFor="email">Correo Gmail</label>
 
- codex/mostrar-estructura-de-archivos
-        <label htmlFor="email">Correo Gmail</label>
-
- codex/mostrar-estructura-de-archivos-cr5ycf
       <div>
         <label htmlFor="email">Correo Gmail</label>
- codex/mostrar-estructura-de-archivos-opcsxy
-
- codex/mostrar-estructura-de-archivos-ea8p9c
-
-
-       <label htmlFor="email">Correo Gmail</label>
-main
- main
- main
- main
- main
-
 
         <input
           id="email"
@@ -123,10 +47,8 @@ main
         />
       </div>
 
-
       <div>
         <label htmlFor="password">Contraseña</label>
-
 
         <input
           id="password"
@@ -140,18 +62,15 @@ main
         />
       </div>
 
-
       {error && (
         <p role="alert" aria-live="polite">
           {error}
         </p>
       )}
 
-
       <button type="submit">Ingresar</button>
     </form>
   );
 }
-
 
 export default LoginForm;

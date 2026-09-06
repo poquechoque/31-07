@@ -1,0 +1,70 @@
+# Dependencias
+node_modules/
+
+# Archivos de entorno
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Compilación TypeScript
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Archivos temporales
+tmp/
+temp/
+
+# Cache
+.cache/
+.eslintcache
+
+# Coverage de pruebas
+coverage/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Configuración de editores
+.vscode/
+.idea/
+
+# Excepciones útiles para VS Code
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Archivos de base de datos locales
+*.sqlite
+*.sqlite3
+*.db
+
+# Uploads locales del backend
+uploads/
+public/uploads/
+
+# Archivos generados por TypeScript
+*.tsbuildinfo
+
+# Docker local
+docker-compose.override.yml
+
+# Certificados o llaves locales
+*.pem
+*.key
+*.crt
+
+# Archivos comprimidos
+*.zip
+*.rar
+*.tar
+*.gz

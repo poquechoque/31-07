@@ -1,17 +1,20 @@
-export type UserRole = "ADMIN" | "USUARIO";
-
-export type UserStatus = "ACTIVO" | "INACTIVO";
+export type UserRole = 'oferente' | 'solicitante' | 'administrador';
 
 export interface User {
   id: string;
-  name: string;
-  email: string;
-  role: UserRole;
-  status: UserStatus;
+  nombreUsuario: string;
+  correo: string;
+  rol: UserRole;
 }
 
-export interface UserRecord extends User {
-  password: string;
+export interface AuthContextType {
+  user: User | null;
+  token: string | null;
+  isLoading: boolean;
+  login: (correo: string, contrasena: string) => Promise<void>;
+  logout: () => void;
+  registerOferente: (data: any) => Promise<void>;
+  registerSolicitante: (data: any) => Promise<void>;
 }
 
 export interface LoginCredentials {

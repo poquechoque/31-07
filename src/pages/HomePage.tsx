@@ -1,200 +1,223 @@
-import { Link, useNavigate } from "react-router-dom";
-
-import lunaImage from "../assets/dogs/luna.svg";
-import maxImage from "../assets/dogs/max.svg";
-import nalaImage from "../assets/dogs/nala.svg";
-import { authRepository } from "../repositories/authRepository";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { mascotaApi } from '../api/mascotaApi';
+import type { Mascota } from '../types/mascota';
 
 function HomePage() {
-  const navigate = useNavigate();
-  const user = authRepository.getCurrentUser();
+  const [mascotasRecientes, setMascotasRecientes] = useState<Mascota[]>([]);
+  const [totalDisponibles, setTotalDisponibles] = useState<number>(0);
+  const [loading, setLoading] = useState(true);
 
-  const handleLogout = () => {
-    authRepository.logout();
-    navigate("/login", { replace: true });
-  };
+  useEffect(() => {
+    const cargarMascotas = async () => {
+      try {
+        const res = await mascotaApi.listar();
+        const disponibles = res.data.filter((m) => m.estadoAdopcion === 'disponible');
+
+        // ordenadas por fecha de registro descendente
+        const recientes = [...disponibles]
+          .sort((a, b) => new Date(b.fechaRegistro).getTime() - new Date(a.fechaRegistro).getTime())
+          .slice(0, 4);
+
+        setMascotasRecientes(recientes);
+        setTotalDisponibles(disponibles.length);
+      } catch (error) {
+        // Si falla, la página igual se muestra, solo sin datos dinámicos
+        setMascotasRecientes([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    cargarMascotas();
+  }, []);
+
+  const fotoHero = mascotasRecientes[0]?.fotoPrincipal;
 
   return (
-    <div className="site-shell">
-      <header className="site-header">
-        <a
-          className="brand"
-          href="#inicio"
-          aria-label="adoptaSucre, ir al inicio"
-        >
-          <svg
-            className="brand-paw"
-            viewBox="0 0 64 64"
-            aria-hidden="true"
-          >
-            <circle cx="16" cy="18" r="7" />
-            <circle cx="31" cy="11" r="7" />
-            <circle cx="47" cy="18" r="7" />
-            <circle cx="53" cy="33" r="7" />
-            <path d="M31.5 26C22 26 16 34.1 16 42.1c0 7.5 6.1 11.9 15.5 11.9S47 49.6 47 42.1C47 34.1 41 26 31.5 26Z" />
-          </svg>
+    <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+      <style>{`
+        .hp-hero {
+          display: grid;
+          grid-template-columns: 1.05fr 1fr;
+          gap: 2.5rem;
+          align-items: center;
+          padding: 3rem 0 2rem;
+        }
+        .hp-btn-primary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.8rem 1.75rem;
+          background: #2563EB;
+          color: white;
+          border: none;
+          border-radius: 10px;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.95rem;
+          transition: background 0.2s;
+        }
+        .hp-btn-primary:hover { background: #1D4ED8; }
+        .hp-btn-outline {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.8rem 1.75rem;
+          background: white;
+          color: #2563EB;
+          border: 1.5px solid #2563EB;
+          border-radius: 10px;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.95rem;
+          transition: background 0.2s;
+        }
+        .hp-btn-outline:hover { background: #EFF6FF; }
+        .hp-stats {
+          display: flex;
+          gap: 3rem;
+          flex-wrap: wrap;
+          padding: 1.5rem 0 2.5rem;
+          border-bottom: 1px solid #E2E8F0;
+          margin-bottom: 2.5rem;
+        }
+        .hp-stat-num {
+          margin: 0;
+          font-size: 2rem;
+          font-weight: 800;
+          color: #0F172A;
+        }
+        .hp-stat-label {
+          margin: 0.15rem 0 0;
+          color: #64748B;
+          font-size: 0.9rem;
+        }
+        .hp-recientes-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1.25rem;
+        }
+        .hp-recientes-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.25rem;
+          margin-bottom: 3rem;
+        }
+        .hp-mascota-card {
+          text-decoration: none;
+          display: block;
+        }
+        .hp-mascota-img {
+          width: 100%;
+          aspect-ratio: 1 / 1;
+          object-fit: cover;
+          border-radius: 18px;
+          background: #F1F5F9;
+          transition: transform 0.2s;
+        }
+        .hp-mascota-card:hover .hp-mascota-img { transform: scale(1.02); }
+        .hp-mascota-nombre {
+          margin: 0.5rem 0 0;
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: #0F172A;
+        }
+        @media (max-width: 860px) {
+          .hp-hero { grid-template-columns: 1fr; padding-top: 2rem; }
+          .hp-recientes-grid { grid-template-columns: repeat(2, 1fr); }
+          .hp-stats { gap: 1.75rem; }
+        }
+      `}</style>
 
-          <span>adoptaSucre</span>
-        </a>
-
-        <nav className="site-nav" aria-label="Navegación principal">
-          <a href="#inicio">Inicio</a>
-          <Link to="/mascotas">Mascotas</Link>
-          <a href="#como-adoptar">Cómo adoptar</a>
-          <a href="#nosotros">Sobre nosotros</a>
-        </nav>
-
-        {user ? (
-          <>
-            <p>Bienvenido, {user.name}</p>
-            <p>Correo: {user.email}</p>
-            <p>Rol: {user.role}</p>
-            <p>Estado: {user.status}</p>
-
-            <button
-              className="session-button"
-              type="button"
-              onClick={handleLogout}
-            >
-              Cerrar sesión
-            </button>
-          </>
-        ) : (
-          <button
-            className="login-button"
-            type="button"
-            onClick={() => navigate("/login")}
-          >
-            Iniciar sesión
-          </button>
-        )}
-      </header>
-
-      <main className="home-main">
-        <section
-          className="hero"
-          id="inicio"
-          aria-labelledby="hero-title"
-        >
-          <div className="hero-content">
-            <p className="eyebrow">Una segunda oportunidad</p>
-
-            <h1 id="hero-title">
-              Encuentra un amigo para toda la vida.
-            </h1>
-
-            <p>
-              En adoptaSucre conectamos mascotas que buscan un hogar con
-              personas listas para brindarles cariño y cuidado.
-            </p>
-
-            <Link className="hero-button" to="/mascotas">
-              Conoce a nuestras mascotas
+      {/* Hero */}
+      <section className="hp-hero" aria-labelledby="hero-title">
+        <div>
+          <h1 id="hero-title" style={{ margin: 0, fontSize: '2.4rem', lineHeight: 1.15, color: '#0F172A', fontWeight: 800 }}>
+            Encuentra un nuevo mejor amigo
+          </h1>
+          <p style={{ margin: '1rem 0 1.75rem', color: '#64748B', fontSize: '1.05rem' }}>
+            Adopta con amor, cambia dos vidas.
+          </p>
+          <div style={{ display: 'flex', gap: '0.9rem', flexWrap: 'wrap' }}>
+            <Link className="hp-btn-primary" to="/mascotas">
+              Adoptar ahora
+            </Link>
+            <Link className="hp-btn-outline" to="/mascotas/nueva">
+              Publicar mascota
             </Link>
           </div>
+        </div>
 
-          <div className="hero-paw" aria-hidden="true">
-            ♥
-          </div>
-        </section>
+        <div>
+          <img
+            src={fotoHero || '/placeholder-dog.jpg'}
+            alt="Mascota en adopción"
+            style={{
+              width: '100%',
+              height: '320px',
+              objectFit: 'cover',
+              borderRadius: '24px',
+            }}
+            onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder-dog.jpg'; }}
+          />
+        </div>
+      </section>
 
-        <section
-          className="home-section"
-          id="mascotas"
-          aria-labelledby="mascotas-title"
-        >
-          <p className="eyebrow">Ellos te esperan</p>
+      {/* Estadísticas */}
+      <section className="hp-stats">
+        <div>
+          <p className="hp-stat-num">{loading ? '—' : totalDisponibles}</p>
+          <p className="hp-stat-label">Mascotas disponibles</p>
+        </div>
+        {/*
+          Estos dos valores no vienen de un endpoint público en el código actual.
+          Los dejo fijos como referencia visual; si tienes (o agregas) un endpoint
+          público de estadísticas, reemplázalos por datos reales igual que arriba.
+        */}
+        <div>
+          <p className="hp-stat-num">85</p>
+          <p className="hp-stat-label">Adopciones exitosas</p>
+        </div>
+        <div>
+          <p className="hp-stat-num">300+</p>
+          <p className="hp-stat-label">Usuarios registrados</p>
+        </div>
+      </section>
 
-          <h2 id="mascotas-title">
-            Mascotas que buscan hogar
+      {/* Mascotas recientes */}
+      <section aria-labelledby="recientes-title">
+        <div className="hp-recientes-header">
+          <h2 id="recientes-title" style={{ margin: 0, fontSize: '1.3rem', color: '#0F172A' }}>
+            Mascotas recientes
           </h2>
-
-          <p className="section-intro">
-            Conoce a algunos de los perritos que están listos para formar
-            parte de tu familia.
-          </p>
-
-          <div className="pet-grid">
-            <article className="pet-card">
-              <img
-                src={lunaImage}
-                alt="Luna, perrita color miel con pañuelo azul"
-              />
-
-              <div className="pet-card-content">
-                <h3>Luna</h3>
-                <p>2 años · Cariñosa y juguetona</p>
-              </div>
-            </article>
-
-            <article className="pet-card">
-              <img
-                src={maxImage}
-                alt="Max, perrito blanco y café con pañuelo azul marino"
-              />
-
-              <div className="pet-card-content">
-                <h3>Max</h3>
-                <p>3 años · Leal y tranquilo</p>
-              </div>
-            </article>
-
-            <article className="pet-card">
-              <img
-                src={nalaImage}
-                alt="Nala, perrita gris con pañuelo amarillo"
-              />
-
-              <div className="pet-card-content">
-                <h3>Nala</h3>
-                <p>1 año · Dulce y curiosa</p>
-              </div>
-            </article>
-          </div>
-
-          <Link className="catalog-link" to="/mascotas">
-            Ver catálogo completo
+          <Link to="/mascotas" style={{ color: '#2563EB', fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none' }}>
+            Ver todas
           </Link>
+        </div>
 
-          <p>
-            Muy pronto podrás conocer a cada una y comenzar su proceso de
-            adopción.
-          </p>
-        </section>
-
-        <section
-          className="home-section"
-          id="como-adoptar"
-          aria-labelledby="adopcion-title"
-        >
-          <p className="eyebrow">Paso a paso</p>
-
-          <h2 id="adopcion-title">Cómo adoptar</h2>
-
-          <p>
-            Explora las mascotas, completa tu solicitud y acompáñanos en el
-            proceso de encuentro.
-          </p>
-        </section>
-
-        <section
-          className="home-section"
-          id="nosotros"
-          aria-labelledby="nosotros-title"
-        >
-          <p className="eyebrow">Nuestra misión</p>
-
-          <h2 id="nosotros-title">Sobre nosotros</h2>
-
-          <p>
-            Trabajamos para que más mascotas de Sucre encuentren una familia
-            responsable.
-          </p>
-        </section>
-      </main>
-    </div>
+        {loading ? (
+          <p style={{ color: '#94A3B8' }}>Cargando mascotas...</p>
+        ) : mascotasRecientes.length === 0 ? (
+          <p style={{ color: '#94A3B8' }}>Aún no hay mascotas disponibles.</p>
+        ) : (
+          <div className="hp-recientes-grid">
+            {mascotasRecientes.map((m) => (
+              <Link key={m._id} className="hp-mascota-card" to={`/mascotas/${m._id}`}>
+                <img
+                  src={m.fotoPrincipal || '/placeholder-dog.jpg'}
+                  alt={m.nombre}
+                  className="hp-mascota-img"
+                  onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder-dog.jpg'; }}
+                />
+                <p className="hp-mascota-nombre">{m.nombre}</p>
+              </Link>
+            ))}
+          </div>
+        )}
+      </section>
+    </main>
   );
 }
 
 export default HomePage;
-

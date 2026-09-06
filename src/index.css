@@ -33,27 +33,9 @@ main {
   padding: 2rem;
 }
 
-form {
-  width: min(100%, 420px);
-  padding: 0 0 2rem;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #ffffff;
-  box-shadow: 0 20px 60px rgb(11 31 58 / 14%);
-}
 
-form h1 {
-  margin: 0 0 2rem;
-  padding: 1.4rem 2rem;
-  color: #ffffff;
-  background: #0b1f3a;
-  text-align: center;
-}
 
-form div,
-form p {
-  margin-inline: 2rem;
-}
+
 
 label {
   display: block;
@@ -76,22 +58,7 @@ input:focus {
   outline: 3px solid rgb(11 31 58 / 14%);
 }
 
-form button {
-  display: block;
-  width: calc(100% - 4rem);
-  margin: 1.5rem 2rem 0;
-  border: 0;
-  border-radius: 999px;
-  padding: 0.9rem 1.25rem;
-  color: #ffffff;
-  background: #0b1f3a;
-  cursor: pointer;
-  font-weight: 800;
-}
 
-form button:hover {
-  background: #12345f;
-}
 
 [role="alert"] {
   color: #a11212;
@@ -695,4 +662,46 @@ form button:hover {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Estilos adicionales para el panel de oferente y admin */
+.estado-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.estado-badge-publicado {
+  background: #d4edda;
+  color: #155724;
+}
+
+.estado-badge-pendiente {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.estado-badge-adoptado {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.estado-badge-borrador {
+  background: #e2e3e5;
+  color: #383d41;
+}
+
+.card-hover {
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgb(11 31 58 / 15%);
+}
+
+
+
+
 

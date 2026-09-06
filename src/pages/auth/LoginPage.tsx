@@ -1,50 +1,40 @@
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-
-
+import { Navigate } from "react-router-dom";
 import LoginForm from "../../components/auth/LoginForm";
-import { authRepository } from "../../repositories/authRepository";
-
-
+import { useAuth } from "../../context/AuthContext";
 import type { LoginCredentials } from "../../types/auth";
 
-
 function LoginPage() {
-  const navigate = useNavigate();
+  const { login, user, isLoading } = useAuth();
   const [error, setError] = useState("");
 
-
-  if (authRepository.isAuthenticated()) {
+  if (user && !isLoading) {
+    if (user.rol === 'administrador') {
+      return <Navigate to="/admin" replace />;
+    } else if (user.rol === 'oferente') {
+      return <Navigate to="/panel-oferente" replace />;
+    } else if (user.rol === 'solicitante') {
+      return <Navigate to="/mis-solicitudes" replace />;
+    }
     return <Navigate to="/" replace />;
   }
 
-
-  const handleLogin = (credentials: LoginCredentials) => {
+  const handleLogin = async (credentials: LoginCredentials) => {
     setError("");
-
-
-    const user = authRepository.login(credentials);
-
-
-    if (!user) {
-      setError("El correo Gmail o la contraseña son incorrectos, o el usuario está inactivo.");
-      return;
+    try {
+      // Convertir credentials al formato que espera el backend
+      await login(credentials.email, credentials.password);
+      // La redirección se maneja en el useEffect o en el return
+    } catch (err: any) {
+      setError(err.message || "Error al iniciar sesión");
     }
-
-
-    navigate("/", { replace: true });
   };
-
 
   return (
     <main>
-      <LoginForm
-        error={error}
-        onSubmit={handleLogin}
-      />
+      <LoginForm error={error} onSubmit={handleLogin} />
     </main>
   );
 }
-
 
 export default LoginPage;

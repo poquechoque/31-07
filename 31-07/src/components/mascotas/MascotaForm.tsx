@@ -151,43 +151,67 @@ export const MascotaForm = ({ mascotaId, initialData, isEditing = false }: Masco
     setFotografiasPreviews(prev => prev.filter((_, i) => i !== index));
   };
 
-  const onSubmit = async (data: MascotaFormData) => {
-    try {
-      setLoading(true);
+// src/components/mascotas/MascotaForm.tsx
+const onSubmit = async (data: MascotaFormData) => {
+  try {
+    setLoading(true);
 
-      const formData = new FormData();
+    const formData = new FormData();
 
-      Object.keys(data).forEach(key => {
-        const value = data[key as keyof MascotaFormData];
-        if (value !== undefined && value !== null) {
+    // ✅ Agregar todos los campos de texto EXCEPTO fotoPrincipal
+    Object.keys(data).forEach(key => {
+      // ✅ Saltar fotoPrincipal si no hay archivo
+      if (key === 'fotoPrincipal') {
+        // Solo enviar si hay un archivo o si es edición y tiene URL
+        if (fotoPrincipalFile || (isEditing && data.fotoPrincipal)) {
+          // No enviar el campo vacío, se maneja con el archivo
+        }
+        return;
+      }
+      
+      const value = data[key as keyof MascotaFormData];
+      if (value !== undefined && value !== null) {
+        if (typeof value === 'boolean') {
+          formData.append(key, value ? 'true' : 'false');
+        } else {
           formData.append(key, String(value));
         }
-      });
-
-      if (fotoPrincipalFile) {
-        formData.append('fotoPrincipal', fotoPrincipalFile);
       }
+    });
 
-      fotografiasFiles.forEach(file => {
-        formData.append('fotografias', file);
-      });
-
-      if (isEditing && mascotaId) {
-        await mascotaApi.actualizarConImagen(mascotaId, formData);
-        toast.success('Mascota actualizada correctamente');
-      } else {
-        await mascotaApi.crearConImagen(formData);
-        toast.success('Mascota publicada correctamente');
-      }
-
-      navigate('/panel-oferente');
-    } catch (error: any) {
-      const message = error.response?.data?.message || 'Error al guardar';
-      toast.error(message);
-    } finally {
-      setLoading(false);
+    // ✅ Solo agregar fotoPrincipal si hay un archivo seleccionado
+    if (fotoPrincipalFile) {
+      formData.append('fotoPrincipal', fotoPrincipalFile);
     }
-  };
+
+    // ✅ Agregar fotografías adicionales
+    fotografiasFiles.forEach(file => {
+      formData.append('fotografias', file);
+    });
+
+    // ✅ Debug: Ver qué se está enviando
+    console.log('📝 FormData entries:');
+    for (let pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
+
+    if (isEditing && mascotaId) {
+      await mascotaApi.actualizarConImagen(mascotaId, formData);
+      toast.success('Mascota actualizada correctamente');
+    } else {
+      await mascotaApi.crearConImagen(formData);
+      toast.success('Mascota publicada correctamente');
+    }
+
+    navigate('/panel-oferente');
+  } catch (error: any) {
+    console.error('❌ Error:', error);
+    const message = error.response?.data?.message || 'Error al guardar';
+    toast.error(message);
+  } finally {
+    setLoading(false);
+  }
+};
 
   if (cargandoDatos) {
     return (

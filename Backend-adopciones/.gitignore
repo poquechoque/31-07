@@ -48,8 +48,6 @@ Thumbs.db
 *.db
 
 # Uploads locales del backend
-uploads/
-public/uploads/
 
 # Archivos generados por TypeScript
 *.tsbuildinfo

@@ -1,9 +1,11 @@
+// src/pages/solicitante/MisSolicitudesPage.tsx
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { solicitudApi } from '../../api/solicitudApi';
 import type{ SolicitudAdopcion } from '../../api/solicitudApi';
 import toast from 'react-hot-toast';
 
+// ✅ Importar iconos
 import { 
   FaPaw, 
   FaClock, 
@@ -104,12 +106,10 @@ function MisSolicitudesPage() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', flexWrap: 'wrap' }}>
                 <div style={{ flex: 1 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-                    <Link to={`/mascotas/${s.mascota._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                       <h3 style={{ margin: 0, color: '#1E293B', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                         <FaDog style={{ color: '#3B82F6' }} />
                         {s.mascota?.nombre || 'Mascota'}
                       </h3>
-                    </Link>
                     <span className={`estado-badge ${
                       s.estadoSolicitud === 'pendiente' ? 'estado-badge-pendiente' : 
                       s.estadoSolicitud === 'aprobada' ? 'estado-badge-publicado' : 
